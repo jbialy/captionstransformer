@@ -10,7 +10,7 @@ class Reader(core.Reader):
             caption = core.Caption()
             caption.start = self.get_date(text['begin'])
             caption.end = self.get_date(text['end'])
-            caption.text = text.text
+            caption.text = text.get_text(" ", strip=True) ## replace tags with white space and strip start/end of string
             self.add_caption(caption)
 
         return self.captions
